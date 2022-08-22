@@ -1,7 +1,7 @@
 # Surfs_up
 ## Overview of the Analysis
 
-The purpose of our analysis is to see temperature statistics for June and December to see if running a surf/ice cream shop is a sustainable year around. To manage the data from the resource provided a few things need to happen to the data: we must query it once for June and another for Dec, convert each to a list, then into a dataframe, to finally receive aggregate metrics on it. Once our dataframe is created we can get our aggregate statistics by using the .describe() method. Before beginning any analysis it's important to view the data to see how it's organized. 
+The purpose of our analysis is to see temperature statistics for June and December to see if running a Surf/Ice cream shop is a sustainable year around on the island of O'ahu. To manage the data from the resource provided a few things need to happen to the data: we must query it once for June and another for Dec, convert each to a list, then into a dataframe, to finally receive aggregate metrics on it. Once our dataframe is created we can get our aggregate statistics by using the .describe() method. Before beginning any analysis it's important to view the data to see how it's organized. 
 
 ![Screen Shot 2022-08-20 at 4 50 49 PM](https://user-images.githubusercontent.com/107026442/185852755-1c5e0dab-65ab-4ea9-8efe-ef03ac9878d5.png)
 
