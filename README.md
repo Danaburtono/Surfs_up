@@ -5,20 +5,20 @@ The purpose of our analysis is to see temperature statistics for June and Decemb
 
 ![Screen Shot 2022-08-20 at 4 50 49 PM](https://user-images.githubusercontent.com/107026442/185852755-1c5e0dab-65ab-4ea9-8efe-ef03ac9878d5.png)
 
-## Resources: 
-SQLite
-SQLAlchemy
-Jupyter Notebook
+## Resources:<br/> 
+SQLite<br/>
+SQLAlchemy<br/>
+Jupyter Notebook<br/>
 
 ## Results:
 
 The results of the Surfs Up Analysis determined the following:<br/>
 <img width="167" alt="Screen Shot 2022-08-21 at 12 09 19 AM" src="https://user-images.githubusercontent.com/107026442/185852865-4a582e5c-4c55-4460-a3bb-719da7c83c2e.png">
-<img width="198" alt="Screen Shot 2022-08-21 at 12 09 29 AM" src="https://user-images.githubusercontent.com/107026442/185852896-f3cf05bb-ef9d-4a93-8734-feb09adcfa01.png"><br/>
+<img width="180" alt="Screen Shot 2022-08-21 at 12 09 29 AM" src="https://user-images.githubusercontent.com/107026442/185852896-f3cf05bb-ef9d-4a93-8734-feb09adcfa01.png"><br/>
 
-* Based on temperature markers. there were 1,700 recordings counted in the month of June over the course of seven years, the average temperature is calculated at 75 degrees, minimum of 64 degrees, and a maximum of 85 degrees.
+* Based on temperature markers, there were 1,700 recordings counted in the month of June over the course of seven years, the average temperature is calculated at 75 degrees, minimum of 64 degrees, and a maximum of 85 degrees.
 
-* Based on temperature markers. there were 1,517 recordings counted in the month of December over the course of seven years, the average temperature is calculated at 71 degrees, minimum of 56 degrees, and a maximum of 83 degrees.
+* Based on temperature markers, there were 1,517 recordings counted in the month of December over the course of seven years, the average temperature is calculated at 71 degrees, minimum of 56 degrees, and a maximum of 83 degrees.
 
 * A standard deviation (or σ) derived from the equation above is a measure of how dispersed the data is in relation to the mean. Low standard deviation means data are clustered around the mean, and high standard deviation indicates data are more spread out. A standard deviation close to zero indicates that data points are close to the mean. June's standard deviation is 3.26 and December's is 3.75. These are relatively low distributions so we can consider that the mean for both months is representative of the actual temperature during June and December months. 
 
@@ -26,10 +26,19 @@ The results of the Surfs Up Analysis determined the following:<br/>
 
 ## Summary:
 
-The island of O'ahu is an ideal location for an ice cream/ surf shop that would have business year-round. After running the queries for temperature the result showed that temperature is relatively the same all your round. Two additional queries would be to analyze precipitation in June and December. Monthly rainfall in O'ahu for June is .136360 and December .216819. These numbers are quite different, we can assume June is the driest month of the year and December is the wettest. Further analysis is necessary to determine if O'ahu is the ideal location for the shop.
+The island of O'ahu is an ideal location for an ice cream/ surf shop that would have business year-round. After running the queries for temperature the result showed that temperature is relatively the same all your round. Two additional queries that would be beneficial is to analyze precipitation in June and December. As an additional effort, I was refactored the query for percipiation.<br/>
+```session.query(Measurement.date, Measurement.prcp).filter(extract('month', Measurement.date)==6).all()
+June_prcp_info=session.query(Measurement.date, Measurement.prcp).filter(extract('month', Measurement.date)==6).all()
+june_prcp_df = pd.DataFrame(June_prcp_info, columns=['date','June Percipication'])
+june_prcp_df.set_index(june_prcp_df['date'], inplace=True)
+june_prcp_clean = june_prcp_df.dropna()
+june_prcp_results = june_prcp_clean.values.tolist()
+june_prcp_clean.describe()
+``` 
+<br/>
+The results show monthly rainfall in O'ahu for June is .136360 and December .216819. These numbers are quite different, we can assume June is the driest month of the year and December is the wettest. Further analysis is necessary to determine if O'ahu is the ideal location for the shop.
 
-<img width="178" alt="Screen Shot 2022-08-21 at 11 04 34 PM" src="https://user-images.githubusercontent.com/107026442/185853740-f4542cd2-76e4-44e9-bb75-ba254b2332af.png">
-<img width="204" alt="Screen Shot 2022-08-21 at 11 04 51 PM" src="https://user-images.githubusercontent.com/107026442/185853755-b84007fa-15d3-49a0-ab17-dc5a83a58868.png">
+<img width="178" alt="Screen Shot 2022-08-21 at 11 04 34 PM" src="https://user-images.githubusercontent.com/107026442/185853740-f4542cd2-76e4-44e9-bb75-ba254b2332af.png"><img width="190" alt="Screen Shot 2022-08-21 at 11 04 51 PM" src="https://user-images.githubusercontent.com/107026442/185853755-b84007fa-15d3-49a0-ab17-dc5a83a58868.png">
 
 
 
