@@ -20,13 +20,13 @@ The results of the Surfs Up Analysis determined the following:<br/>
 
 * Based on temperature markers, there were 1,517 recordings counted in the month of December over the course of seven years, the average temperature is calculated at 71 degrees, minimum of 56 degrees, and a maximum of 83 degrees.
 
-* A standard deviation (or σ) derived from the equation above is a measure of how dispersed the data is in relation to the mean. Low standard deviation means data are clustered around the mean, and high standard deviation indicates data are more spread out. A standard deviation close to zero indicates that data points are close to the mean. June's standard deviation is 3.26 and December's is 3.75. These are relatively low distributions so we can consider that the mean for both months is representative of the actual temperature during June and December months. 
+* A standard deviation (or σ) derived from the equation below is a measure of how dispersed the data is in relation to the mean. Low standard deviation means data are clustered around the mean, and high standard deviation indicates data are more spread out. A standard deviation close to zero indicates that data points are close to the mean. June's standard deviation is 3.26 and December's is 3.75. These are relatively low distributions so we can consider that the mean for both months is representative of the actual temperature during June and December months. 
 
 <img width="182" alt="Screen Shot 2022-08-21 at 12 49 46 AM" src="https://user-images.githubusercontent.com/107026442/185852943-f62b8e2e-416d-4b01-b425-63b37dae263f.png"> <img width="300" alt="Screen Shot 2022-08-21 at 12 47 41 AM" src="https://user-images.githubusercontent.com/107026442/185852958-61332131-8e58-48b0-9ae0-c28276fe8353.png">
 
 ## Summary:
 
-The island of O'ahu is an ideal location for an ice cream/ surf shop that would have business year-round. After running the queries for temperature the result showed that temperature is relatively the same all your round. Two additional queries that would be beneficial is to analyze precipitation in June and December. As an additional effort, I was refactored the query for percipiation.<br/>
+The island of O'ahu is an ideal location for an ice cream/ surf shop that would have business year-round. After running the queries for temperature the result showed that temperature is relatively similar all your round. Two additional queries that would be beneficial is to analyze precipitation in June and December. As an additional effort, I have refactored the query for percipiation.<br/>
 ```session.query(Measurement.date, Measurement.prcp).filter(extract('month', Measurement.date)==6).all()
 June_prcp_info=session.query(Measurement.date, Measurement.prcp).filter(extract('month', Measurement.date)==6).all()
 june_prcp_df = pd.DataFrame(June_prcp_info, columns=['date','June Percipication'])
